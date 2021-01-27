@@ -1,14 +1,14 @@
-# Pomodoro
-pomodoro.py es un pequeño script que nos facilita los cambios de estado de Slack cuando queremos avisar a los demás que estamos trabajando, basándonos, cómo no, en el método Pomodoro.
+# Pomodoro 🍅
+pomodoro.py es un pequeño script que nos facilita los cambios de estado de Slack cuando queremos avisar a los demás que estamos trabajando, basándonos, cómo no, en la [técnica Pomodoro](https://es.wikipedia.org/wiki/Técnica_Pomodoro).
 
 ## Comenzando 🚀
-Antes de poder poner en funcionamiento este script, necesitamos tener un token de Slack por cada workspace que queramos manejar. Para esto, debemos crear una app (o usar alguna que haya creada en el Workspace).
+Antes de poder poner en funcionamiento este script, necesitamos tener un token de Slack por cada workspace que queramos manejar. Para esto, debemos crear una app (o usar alguna que haya creada en el workspace). Los pasos de cómo hacerlo se pueden seguir [aquí](https://metadrop.net/articulos/desarrollar-aplicacion-pomodoro-slack-php).
 
-Lo importante es que la app tenga permisos para modificar el estado del usuario, por lo que debemos de asegurarnos que en la pestaña **Features/OAuth & Permissions**, el apartado **User Token Scopes** contenga el scope **[users.profile:write](https://api.slack.com/scopes/users.profile:write)**.
+Lo importante es que la app tenga permisos para modificar el estado del usuario, por lo que debemos de asegurarnos que en la pestaña **Features/OAuth & Permissions**, el apartado **User Token Scopes** contenga el permiso **[users.profile:write](https://api.slack.com/scopes/users.profile:write)**.
 
-Una vez instalada la aplicación, obtendremos un **OAuth Access Token** para poder configurar nuestro script.
+Una vez instalada la aplicación, generamos un **OAuth Access Token** para poder configurar el script.
 
-### Pre-requisitos 📋
+## Pre-requisitos 📋
 Para ejecutar el script se requiere instalar el paquete **slackclient**. Si quieres usar un entorno virtual y no sabes cómo, sigue los pasos [aquí](https://docs.python.org/3/tutorial/venv.html).
 
 El proyecto contiene un archivo **requirements.py** para facilitar la instalación:
@@ -33,7 +33,7 @@ El script tiene tres funciones:
 python pomodoro.py
 ```
 
-* Eliminar el estado cuando quieras avisar de que ya no estás ocupado:
+* Borrar el estado cuando quieras avisar de que ya no estás ocupado:
 ```
 python pomodoro.py --clear
 ```
@@ -43,7 +43,7 @@ python pomodoro.py --clear
 python pomodoro.py --remote
 ```
 
-Además, puedes configurar el tiempo que quieres que dure el cambio de estado (no aplica al borrado de estado).
+Además, puedes configurar el tiempo que quieres que dure el cambio de estado (esto no aplica a opción de borrarlo). Una vez ha pasado el tiempo configurado, el estado se borrará:
 ```
 python pomodoro.py --time TIEMPO_EN_MINUTOS
 ```
